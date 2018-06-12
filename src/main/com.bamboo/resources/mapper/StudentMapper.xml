@@ -1,0 +1,45 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--不需要找到接口实现类只需要找到接口-->
+<mapper namespace="com.ecjtu.dao.IStudentDAO">
+    <!--一般定义为实体  此处id值是为下方查询或其余使用到的resultMap的值-->
+    <resultMap type="com.ecjtu.entity.Student" id="student">
+        <!--对应表中主键-实体类属性-->
+        <id column="sno" property="sno"/>
+        <!--column 表字段，property 实体类属性-->
+        <result column="sname" property="sname"/>
+        <result column="sex" property="sex"/>
+        <result column="age" property="age"/>
+        <result column="sd" property="sd"/>
+    </resultMap>
+
+    <!--通过接口编程-->
+    <!--只需要接口即可，不需要实现类，实现类可以删除-->
+    <!--数据库连接类也可以删除-->
+    <!--id写上对应接口方法即可-->
+    <!--此处的resulrMap的值是上面配置好的resultMap的id-->
+    <select id="findAll" resultMap="student">
+        select * from student;
+    </select>
+
+    <select id="findByName" resultType="com.ecjtu.entity.Student" parameterType="java.lang.String">
+        select * from student where sno = #{sno};
+    </select>
+
+    <delete id="del" parameterType="java.lang.String">
+        delete from student where sno = #{sno};
+    </delete>
+
+    <!--<update id="update" parameterType="student">-->
+        <!--UPDATE student SET student.Sname=#{sname},-->
+        <!--student.Sex=#{sex},-->
+        <!--student.Age=#{age},-->
+        <!--student.SD=#{sd}-->
+        <!--WHERE student.Sno=#{sno};-->
+    <!--</update>-->
+
+    <!--<insert id="">-->
+
+    <!--</insert>-->
+</mapper>

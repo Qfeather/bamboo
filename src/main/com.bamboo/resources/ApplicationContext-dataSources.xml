@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+<!--配置数据源-->
+
+    <context:annotation-config/>
+
+    <context:component-scan base-package="controller">
+        <!--不扫描controller注解-->
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+    <!--配置Druid数据源链接池-->
+    <bean class="com.alibaba.druid.pool.DruidDataSource"
+         id="dataSource" init-method="init" destroy-method="close"> <!--id 初始化方法  销毁方法-->
+        <!--配置数据库连接-->
+        <!--value 驱动类连接地址-->
+        <!--${}这里是直接调用了数据库配置文件dbconfig中的配置-->
+        <property name="driverClassName" value="${jdbc.driverClassName}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+
+    <!--sql会话模板-->
+    <bean class="org.mybatis.spring.SqlSessionTemplate" id="sessionTemplate" scope="prototype">
+        <constructor-arg ref="sqlSessionFactory"/>
+    </bean>
+
+    <!--配置Mybatis-->
+    <bean class="org.mybatis.spring.SqlSessionFactoryBean"
+          id="sqlSessionFactory">
+        <!--spring框架的特点——依赖注入（控制反转）-->
+        <!--将ref的值注入到property属性里面-->
+        <!--只有注入时使用ref其余时间都是用value-->
+        <property name="dataSource" ref="dataSource"/><!--来自数据源连接池的的值赋给这个property-->
+        <!--找mybatis的配置文件放入value值中-->
+        <property name="configLocation"  value="mybatis-config.xml"/>
+        <!--映射文件位置-->
+        <!--mybatis 所有的数据操作都是写在xml文件中，这种文件叫做映射文件，一般叫mapper.xml-->
+        <!--如果要操作Student类对应的映射文件应该为StudentMapper.xml-->
+        <property name="mapperLocations" value="classpath*:mapper/*Mapper.xml"/>
+    </bean>
+
+    <!--配置mybatis的自动扫描-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!--扫描dao包-->
+        <property name="basePackage" value="dao"/>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+    </bean>
+
+
+</beans>
