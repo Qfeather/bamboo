@@ -1,0 +1,37 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--不需要找到接口实现类只需要找到接口-->
+<mapper namespace="com.bamboo.dao.ILeaveMessageDAO">
+    <!--一般定义为实体  此处id值是为下方查询或其余使用到的resultMap的值-->
+    <resultMap type="com.bamboo.entity.Photoes.Photo" id="photo">
+        <!--对应表中主键-实体类属性-->
+        <id column="pno"  property="pno"/>
+        <result column="purl" property="purl"/>
+        <result column="pdes" property="pdes"/>
+        <result column="pdate" property="pdate"/>
+        <result column="collnum" property="collnum"/>
+        <collection property="lno" ofType="com.bamboo.entity.comments.Lmessage">
+            <id column="lmno" property="lmno"/>
+            <result column="lmcontent" property="lmcontent"/>
+            <result column="lmdate" property="lmdate"/>
+            <collection property="uno" ofType="com.bamboo.entity.users.User">
+                <id column="uno" property="uno"/>
+                <result column="name" property="name"/>
+            </collection>
+        </collection>
+    </resultMap>
+
+    <!--查询图片所对应的留言-->
+    <select id="pcontent" resultMap="photo" parameterType="java.lang.String">
+        select
+		lmcontent,name,lmdate
+        from photo
+        left join lmessage on photo.pno=lmessage.pno
+        left join user on lmessage.uno=user.uno
+        where photo.pno="1";
+    </select>
+
+
+
+</mapper>
