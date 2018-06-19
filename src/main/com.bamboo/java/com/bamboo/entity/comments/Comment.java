@@ -48,6 +48,10 @@ public class Comment {//评论类
     public void setCdate(Date cdate) {
         this.cdate = cdate;
     }
+    public void setCdate() {
+        Date day=new java.sql.Date(new Date().getTime());
+        this.cdate = day;
+    }
 
     @Override
     public String toString() {

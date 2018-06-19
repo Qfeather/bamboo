@@ -29,6 +29,15 @@ public class CollectionTest {
         List<String> strings=dao.findimg(map);
         System.out.println(strings);
     }
+    @Test
+    public void del(){
+        Map<String,String> map=new HashMap<String,String>();
+        map.put("uno","1");
+        map.put("pno","1");
+        map.put("ckname","1");
+        int i=dao.del(map);
+        System.out.println(i);
+    }
 
 
 

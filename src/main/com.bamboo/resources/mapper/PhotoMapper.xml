@@ -30,6 +30,12 @@
         DELETE FROM photo WHERE pno = #{pno}
     </delete>
 
+    <!--用户删除自己上传对应的图片-->
+    <delete id="del"  parameterType="hashmap">
+      DELETE from photo
+      where uno=#{uno} and pno=#{pno};
+    </delete>
+
 
 
 </mapper>

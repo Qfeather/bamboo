@@ -29,4 +29,9 @@
       where collection.uno=#{uno} and ckname=#{ckname};
     </select>
 
+    <delete id="del" parameterType="hashmap">
+      DELETE from collection
+      where uno=#{uno} and pno=#{pno} and ckname=#{ckname};
+    </delete>
+
 </mapper>

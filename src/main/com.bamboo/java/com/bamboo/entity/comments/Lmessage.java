@@ -3,6 +3,7 @@ package com.bamboo.entity.comments;
 import com.bamboo.entity.Photoes.Photo;
 import com.bamboo.entity.users.User;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Lmessage {//留言类
@@ -18,6 +19,13 @@ public class Lmessage {//留言类
 
     public String getLmno() {
         return lmno;
+    }
+
+    public void setLmno() {
+        Date day=new Date();
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String s=df.format(day).replaceAll("[[\\s-:punct:]]","");
+        this.lmno = "lm"+s;
     }
 
     public void setLmno(String lmno) {
@@ -62,6 +70,10 @@ public class Lmessage {//留言类
 
     public void setLmdate(Date lmdate) {
         this.lmdate = lmdate;
+    }
+    public void setLmdate() {
+        Date day=new java.sql.Date(new Date().getTime());
+        this.lmdate = day;
     }
 
     @Override

@@ -6,6 +6,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
+import java.util.Map;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:ApplicationContext.xml")
@@ -29,6 +31,15 @@ public class PhotoTest {
     @Test
     public void del(){
         int i=dao.delphoto("1");
+        System.out.println(i);
+    }
+
+    @Test
+    public void dell(){
+        Map<String,String> map=new HashMap<String,String>();
+        map.put("uno","1");
+        map.put("pno","2");
+        int i=dao.del(map);
         System.out.println(i);
     }
 
