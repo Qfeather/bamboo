@@ -1,0 +1,31 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--不需要找到接口实现类只需要找到接口-->
+<mapper namespace="com.bamboo.dao.IPhotoDAO">
+    <!--一般定义为实体  此处id值是为下方查询或其余使用到的resultMap的值-->
+    <resultMap type="com.bamboo.entity.Photoes.Photo" id="photo">
+        <!--对应表中主键-实体类属性-->
+        <id column="pno"  property="pno"/>
+        <result column="purl" property="purl"/>
+        <result column="pdes" property="pdes"/>
+        <result column="pdate" property="pdate"/>
+        <result column="collnum" property="collnum"/>
+        <result column="uno" property="uno"/>
+    </resultMap>
+
+    <!--上传相片-->
+    <insert id="newPhoto" parameterType="com.bamboo.entity.Photoes.Photo">
+        INSERT INTO photo (pno,purl,pdes,pdate,collnum,uno)
+        VALUES
+        (#{pno,jdbcType=VARCHAR},
+        #{purl,jdbcType=VARCHAR},
+        #{pdes,jdbcType=VARCHAR},
+        #{pdate,jdbcType=DATE},
+        #{collnum,jdbcType=SMALLINT},
+        #{uno,jdbcType=VARCHAR})
+    </insert>
+
+
+
+</mapper>
