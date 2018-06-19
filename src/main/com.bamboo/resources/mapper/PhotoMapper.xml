@@ -26,6 +26,10 @@
         #{uno,jdbcType=VARCHAR})
     </insert>
 
+    <delete id="delphoto" parameterType="java.lang.String">
+        DELETE FROM photo WHERE pno = #{pno}
+    </delete>
+
 
 
 </mapper>

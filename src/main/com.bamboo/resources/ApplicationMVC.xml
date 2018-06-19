@@ -14,7 +14,7 @@
     <!--开启注解-->
     <mvc:annotation-driven/>
     <!--扫描控制器所在包-->
-    <context:component-scan base-package="controller">
+    <context:component-scan base-package="com.bamboo.controller">
         <!--只负责Controller注解不扫描Service和Repository的注解-->
         <!--要扫描的部分写在不扫描的部分上方-->
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
@@ -23,7 +23,7 @@
 
     </context:component-scan>
     <!--扫描控制器所在包-->
-    <context:component-scan base-package="controller"></context:component-scan>
+    <context:component-scan base-package="com.bamboo.controller"></context:component-scan>
     <!--开启静态资源访问-->
     <mvc:resources mapping="/statics/**" location="/statics/"/>
     <!--配置视图解析器-->

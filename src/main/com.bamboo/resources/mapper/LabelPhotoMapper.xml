@@ -1,0 +1,28 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--不需要找到接口实现类只需要找到接口-->
+<mapper namespace="com.bamboo.dao.IPhotoLabelDAO">
+    <!--一般定义为实体  此处id值是为下方查询或其余使用到的resultMap的值-->
+    <resultMap type="com.bamboo.entity.Photoes.Photo" id="photo">
+        <!--对应表中主键-实体类属性-->
+        <id column="pno"  property="pno"/>
+        <result column="purl" property="purl"/>
+        <result column="pdes" property="pdes"/>
+        <result column="pdate" property="pdate"/>
+        <result column="collnum" property="collnum"/>
+        <collection property="lno" ofType="com.bamboo.entity.Photoes.PhotoLabel">
+            <result column="lno" property="lno"/>
+        </collection>
+    </resultMap>
+
+    <!--查询图片所对应的标签-->
+    <select id="plabel" resultType="java.lang.String" parameterType="java.lang.String">
+        select distinct  lno  from photo left join photolabel on photo.pno=photolabel.pno where photo.pno=#{0};
+    </select>
+    <!--查询该标签下所对应图片-->
+    <select id="labelp" resultType="java.lang.String" parameterType="java.lang.String">
+        select distinct photo.pno from photo left join photolabel on photo.pno=photolabel.pno where photolabel.lno=#{0} ;
+    </select>
+
+</mapper>

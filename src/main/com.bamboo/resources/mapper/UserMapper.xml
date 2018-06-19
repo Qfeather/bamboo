@@ -23,5 +23,50 @@
     <select id="findByusername" resultType="java.lang.String" parameterType="java.lang.String">
       select password from user where username=#{username};
     </select>
+    <select id="findAll" resultMap="userMessage" parameterType="java.lang.String">
+      select
+       username,
+       name,
+       sex,
+       age,
+       homepages,
+       profile,
+       tel,
+       headimg,
+       regdate
+       from user where username=#{username};
+    </select>
+    <select id="getuno" resultType="java.lang.String" parameterType="java.lang.String">
+      select uno from user where username=#{username};
+    </select>
+
+    <!--注册-->
+    <insert id="newUser" parameterType="com.bamboo.entity.users.User">
+        INSERT INTO user (uno,username,password,name,sex,age,tel,regdate)
+        VALUES
+        (#{uno,jdbcType=VARCHAR},
+        #{username,jdbcType=VARCHAR},
+        #{password,jdbcType=VARCHAR},
+        #{name,jdbcType=VARCHAR},
+        #{sex,jdbcType=VARCHAR},
+        #{age,jdbcType=SMALLINT},
+        #{tel,jdbcType=VARCHAR},
+        #{regdate,jdbcType=DATE})
+    </insert>
+
+    <!--更新个人信息-->
+    <update id="upd" parameterType="com.bamboo.entity.users.User">
+    UPDATE user SET
+    password = #{password,jdbcType=VARCHAR},
+    name = #{name,jdbcType=VARCHAR},
+    sex = #{sex,jdbcType=VARCHAR},
+    age = #{age,jdbcType=SMALLINT},
+    homepages = #{homepages,jdbcType=VARCHAR},
+    profile = #{profile,jdbcType=VARCHAR},
+    headimg = #{headimg,jdbcType=VARCHAR},
+    tel = #{tel,jdbcType=VARCHAR}
+    WHERE uno= #{uno,jdbcType=VARCHAR}
+
+    </update>
 
 </mapper>

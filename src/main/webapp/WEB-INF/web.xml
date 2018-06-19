@@ -8,7 +8,10 @@
   <!--加载了spring全局配置文件-->
   <context-param>
     <param-name>contextConfigLocation</param-name>
-    <param-value>classpath*:ApplicationContext.xml</param-value>
+    <param-value>
+      classpath*:ApplicationContext.xml
+      classpath*:ApplicationContext-dataSources.xml
+    </param-value>
   </context-param>
 
 

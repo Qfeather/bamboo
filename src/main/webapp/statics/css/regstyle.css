@@ -1,0 +1,23 @@
+
+body{
+	background-color: #343434;
+}
+.mylabel{
+	color: #fff;
+}
+#h2{
+	position: relative;
+	top: 0px;
+	left: 30%;
+	color: #fff;
+}
+#input{
+	position: relative;
+	top: 0px;
+	left: 0px;
+}
+#rewrite{
+	position: relative;
+	top: -51px;
+	left: 166px;
+}

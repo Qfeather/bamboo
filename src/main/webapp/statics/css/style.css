@@ -1,0 +1,32 @@
+
+body{
+	background: #343434;
+}
+#center{
+	color: #fffffc;
+	width: 410px;
+	height:410px;
+	position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,0%);
+
+}
+#h2{
+	position: relative;
+	left: 35%;
+	top: -14px;
+
+}
+#botton{
+	width: 300px;
+	height: 45px;
+	font-size: 22px;
+	line-height: 20px;
+	background-color:#1DA2FF; 
+	border-radius:5px;
+}
+#botton:hover
+{
+    background-color: #1782CC;
+}
