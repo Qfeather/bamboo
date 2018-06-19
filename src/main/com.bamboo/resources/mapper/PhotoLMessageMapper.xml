@@ -19,6 +19,13 @@
                 <id column="uno" property="uno"/>
                 <result column="name" property="name"/>
             </collection>
+            <collection property="scno" ofType="com.bamboo.entity.comments.Comment">
+                <id column="scno" property="scno"/>
+                <result column="fcno" property="fcno"/>
+                <result column="content" property="content"/>
+                <result column="uno" property="uno"/>
+                <result column="cdate" property="cdate"/>
+            </collection>
         </collection>
     </resultMap>
 
@@ -29,7 +36,18 @@
         from photo
         left join lmessage on photo.pno=lmessage.pno
         left join user on lmessage.uno=user.uno
-        where photo.pno="1";
+        where photo.pno=#{pno};
+    </select>
+
+    <!--见了鬼的图片+留言+评论-->
+    <select id="findALL" resultMap="photo" parameterType="java.lang.String">
+        select
+		*
+        from photo
+        left join lmessage on photo.pno=lmessage.pno
+        left join user on lmessage.uno=user.uno
+        left join comment on comment.lmno=lmessage.lmno
+        where photo.pno=#{pno};
     </select>
 
 
