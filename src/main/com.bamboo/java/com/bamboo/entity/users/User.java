@@ -119,7 +119,7 @@ public class User {//用户类
 
     @Override
     public String toString() {
-        return "User{" +
+        return "\nUser{" +
                 "uno='" + uno + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
@@ -131,6 +131,6 @@ public class User {//用户类
                 ", headimg='" + headimg + '\'' +
                 ", tel='" + tel + '\'' +
                 ", regdate=" + regdate +
-                '}';
+                '}'+"\n";
     }
 }

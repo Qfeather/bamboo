@@ -5,6 +5,7 @@ import com.bamboo.entity.users.User;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 public class Lmessage {//留言类
     private String lmno;//留言编号
@@ -12,10 +13,13 @@ public class Lmessage {//留言类
     private String lmcontent;//留言内容
 //    private String uno;//留言人
     private Date lmdate;//留言时间（排序用）
-
     private User uno;//
-
     private Photo pno;//对应照片
+
+    private List<Comment> scno;//一条留言对应多条评论
+
+
+
 
     public String getLmno() {
         return lmno;
@@ -78,12 +82,13 @@ public class Lmessage {//留言类
 
     @Override
     public String toString() {
-        return "Lmessage{" +
+        return "\nLmessage{" +
                 "lmno='" + lmno + '\'' +
                 ", lmcontent='" + lmcontent + '\'' +
                 ", lmdate=" + lmdate +
                 ", uno=" + uno +
                 ", pno=" + pno +
-                '}';
+                ", scno=" + scno +
+                '}'+"\n";
     }
 }

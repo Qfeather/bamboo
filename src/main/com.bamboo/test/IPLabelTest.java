@@ -36,4 +36,12 @@ public class IPLabelTest {
             System.out.println(p.toString());
         }
     }
+
+    @Test
+    public void findALL(){
+        List<Photo> photos=dao.findALL("1");
+        for (Photo p :photos) {
+            System.out.println(p.toString());
+        }
+    }
 }

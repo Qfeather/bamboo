@@ -10,5 +10,6 @@ import java.util.List;
 public interface ILeaveMessageDAO {
 
     public List<Photo> pcontent(String pno);
+    public List<Photo> findALL(String pno);
 
 }

@@ -101,19 +101,19 @@ public class Photo {//照片类
         this.cno = cno;
     }
 
-
     @Override
     public String toString() {
-        return "Photo{" +
+        return "\nPhoto{" +
                 "pno='" + pno + '\'' +
+                ", uno='" + uno + '\'' +
                 ", purl='" + purl + '\'' +
                 ", pdes='" + pdes + '\'' +
                 ", pdate=" + pdate +
-                ", collnum='" + collnum + '\'' +
+                ", collnum=" + collnum +
                 ", lno=" + lno +
                 ", lmno=" + lmno +
                 ", cno=" + cno +
-                '}';
+                '}'+"\n";
     }
 }
 
