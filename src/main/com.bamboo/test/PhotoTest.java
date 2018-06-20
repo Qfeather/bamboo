@@ -7,6 +7,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -41,6 +42,14 @@ public class PhotoTest {
         map.put("pno","2");
         int i=dao.del(map);
         System.out.println(i);
+    }
+
+    @Test
+    public void search(){
+        List<Photo> photos=dao.searchphoto("阿萨");
+        for (Photo p : photos) {
+            System.out.println(p.toString());
+        }
     }
 
 }

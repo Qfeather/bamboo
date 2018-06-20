@@ -36,6 +36,11 @@
       where uno=#{uno} and pno=#{pno};
     </delete>
 
+    <!--模糊查询图片-->
+    <select id="searchphoto" resultMap="photo" parameterType="java.lang.String">
+      select *
+       from photo where pdes like "%"#{des}"%";
+    </select>
 
 
 </mapper>

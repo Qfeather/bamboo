@@ -1,0 +1,29 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--不需要找到接口实现类只需要找到接口-->
+<mapper namespace="com.bamboo.dao.IFansDAO">
+    <!--一般定义为实体  此处id值是为下方查询或其余使用到的resultMap的值-->
+    <resultMap type="com.bamboo.entity.users.Fans" id="fans">
+        <!--对应表中主键-实体类属性-->
+        <result column="users" property="users"/>
+        <collection property="fans" ofType="com.bamboo.entity.users.User">
+            <id column="uno" property="uno"/>
+            <result column="name" property="name"/>
+        </collection>
+    </resultMap>
+
+    <!--用户查粉丝-->
+    <select id="selectfans" resultMap="fans" parameterType="java.lang.String">
+        select fans,uno,name from fansview
+		where users=#{users};
+    </select>
+
+    <!--用户关注-->
+    <select id="selectatten" resultMap="fans" parameterType="java.lang.String">
+        select users,uno,name from attentions
+		where fans=#{users};
+    </select>
+
+
+</mapper>

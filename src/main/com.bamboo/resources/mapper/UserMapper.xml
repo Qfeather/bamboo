@@ -69,4 +69,12 @@
 
     </update>
 
+    <!--模糊查询用户-->
+    <select id="searchuser" resultMap="userMessage" parameterType="java.lang.String">
+      select
+       uno,
+       name
+       from user where name like "%"#{name}"%";
+    </select>
+
 </mapper>

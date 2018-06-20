@@ -1,5 +1,7 @@
 package com.bamboo.entity.comments;
 
+import com.bamboo.entity.users.User;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -7,7 +9,7 @@ public class Comment {//评论类
     private String scno;//子评论编号
     private String fcno;//父评论编号//根据父评论编号找到评论人//回复的格式为   回复+@+父评论评论人+评论内容
     private String content;//评论内容
-    private String uno;//评论人
+    private User uno;//评论人
     private Date cdate;//评论时间（排序用）
 
 
@@ -44,12 +46,20 @@ public class Comment {//评论类
         this.content = content;
     }
 
-    public String getUno() {
+    public User getUno() {
         return uno;
     }
 
-    public void setUno(String uno) {
+    public void setUno(User uno) {
         this.uno = uno;
+    }
+
+    public Lmessage getLmessage() {
+        return lmessage;
+    }
+
+    public void setLmessage(Lmessage lmessage) {
+        this.lmessage = lmessage;
     }
 
     public Date getCdate() {

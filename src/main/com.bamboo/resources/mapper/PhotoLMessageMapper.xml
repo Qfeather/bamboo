@@ -23,8 +23,11 @@
                 <id column="scno" property="scno"/>
                 <result column="fcno" property="fcno"/>
                 <result column="content" property="content"/>
-                <result column="uno" property="uno"/>
                 <result column="cdate" property="cdate"/>
+                <collection property="uno" ofType="com.bamboo.entity.users.User">
+                    <id column="uno" property="uno"/>
+                    <result column="name" property="name"/>
+                </collection>
             </collection>
         </collection>
     </resultMap>
@@ -41,8 +44,7 @@
 
     <!--见了鬼的图片+留言+评论-->
     <select id="findALL" resultMap="photo" parameterType="java.lang.String">
-        select
-		*
+        select *
         from photo
         left join lmessage on photo.pno=lmessage.pno
         left join user on lmessage.uno=user.uno

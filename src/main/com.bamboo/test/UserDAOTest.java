@@ -6,6 +6,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:ApplicationContext.xml")
@@ -59,6 +60,16 @@ public class UserDAOTest {
 
         int i=dao.upd(user);
         System.out.println(i);
+    }
+
+
+
+    @Test
+    public void search(){
+        List<User> users=dao.searchuser("元");
+        for (User u : users) {
+            System.out.println(u.toString());
+        }
     }
 
 }

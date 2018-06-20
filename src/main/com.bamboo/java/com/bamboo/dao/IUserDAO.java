@@ -3,6 +3,8 @@ package com.bamboo.dao;
 import com.bamboo.entity.users.User;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository("UserDao")
 
 public interface IUserDAO {
@@ -14,4 +16,6 @@ public interface IUserDAO {
 
     public int newUser(User user);
     public int upd(User user);
+
+    public List<User> searchuser(String name);
 }

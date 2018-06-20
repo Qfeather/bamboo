@@ -1,5 +1,6 @@
 package com.bamboo.entity.users;
 
+import com.bamboo.entity.comments.Comment;
 import com.bamboo.entity.comments.Lmessage;
 
 import java.text.SimpleDateFormat;
@@ -21,6 +22,8 @@ public class User {//用户类
 
 
     private List<Lmessage> lmessage;//一个用户对应许多留言
+    private List<Comment>  comments;//一个用户对应许多评论
+    private List<Fans> fans;
 
     public String getUno() {
         return uno;
@@ -116,6 +119,27 @@ public class User {//用户类
         Date day=new java.sql.Date(new Date().getTime());
         this.regdate = day;
     }
+
+    public void setRegdate(Date regdate) {
+        this.regdate = regdate;
+    }
+
+    public List<Lmessage> getLmessage() {
+        return lmessage;
+    }
+
+    public void setLmessage(List<Lmessage> lmessage) {
+        this.lmessage = lmessage;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
+
 
     @Override
     public String toString() {
