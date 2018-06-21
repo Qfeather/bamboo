@@ -25,8 +25,8 @@ public class UserPersonalLike {//用户喜爱的标签
         return number;
     }
 
-    public void setNumber(int number) {
-        this.number = number;
+    public void setNumber() {
+        this.number = 0;
     }
 
     @Override

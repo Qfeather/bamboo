@@ -10,16 +10,25 @@
         <result column="lno" property="lno"/>
         <result column="number" property="number"/>
     </resultMap>
+
+    <!--将Userlike和UserPersonal合成一种查询-->
+
     <!--插入用户喜爱-->
-    <insert id="insertlike" parameterType="personallike">
-        INSERT INTO userlike (uno, lno,number) VALUES (#{uno}, #{lno},"0")
-
+    <insert id="insertlike" parameterType="com.bamboo.entity.users.UserPersonalLike">
+        INSERT INTO userlike (uno, lno,number) VALUES (#{uno}, #{lno},#{number})
     </insert>
-
     <!--插入用户个人-->
-    <insert id="insertpersonal" parameterType="personallike">
-        INSERT INTO userpersonal (uno, lno,number) VALUES (#{uno}, #{lno},"0")
-
+    <insert id="insertpersonal" parameterType="com.bamboo.entity.users.UserPersonalLike">
+        INSERT INTO userpersonal (uno, lno,number) VALUES (#{uno}, #{lno},#{number})
     </insert>
 
+
+    <!--查找用户喜爱标签-->
+    <select id="selectlike" resultType="java.lang.String" parameterType="java.lang.String">
+        Select lno from userlike where uno=#{user} order by number desc
+    </select>
+    <!--查找用户个人标签-->
+    <select id="selectpersonal" resultType="java.lang.String" parameterType="java.lang.String">
+        Select lno from userpersonal where uno=#{user} order by number desc
+    </select>
 </mapper>
