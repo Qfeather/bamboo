@@ -9,12 +9,34 @@ public class Comment {//评论类
     private String scno;//子评论编号
     private String fcno;//父评论编号//根据父评论编号找到评论人//回复的格式为   回复+@+父评论评论人+评论内容
     private String content;//评论内容
-    private User uno;//评论人
+    private String uuno;
+    private String llmno;
     private Date cdate;//评论时间（排序用）
+
+
+
+    private User uno;//评论人
+
 
 
     private Lmessage lmessage;//位于哪个留言下
 
+
+    public String getUuno() {
+        return uuno;
+    }
+
+    public void setUuno(String uuno) {
+        this.uuno = uuno;
+    }
+
+    public String getLlmno() {
+        return llmno;
+    }
+
+    public void setLlmno(String llmno) {
+        this.llmno = llmno;
+    }
 
     public String getScno() {
         return scno;
@@ -43,7 +65,7 @@ public class Comment {//评论类
     }
 
     public void setContent(String content) {
-        this.content = content;
+        this.content = "回复@"+this.fcno+content;
     }
 
     public User getUno() {

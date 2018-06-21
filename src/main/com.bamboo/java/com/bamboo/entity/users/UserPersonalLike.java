@@ -1,9 +1,9 @@
 package com.bamboo.entity.users;
 
-public class UserPersonal {//用户个人标签
+public class UserPersonalLike {//用户喜爱的标签
     private String uno;//用户编号
     private String lno;//标签编号
-    private int number;//用户发布的图片带有此标签的数目
+    private int number;//查看带有此标签的图片的次数
 
     public String getUno() {
         return uno;
@@ -31,7 +31,7 @@ public class UserPersonal {//用户个人标签
 
     @Override
     public String toString() {
-        return "UserPersonal{" +
+        return "UserPersonalLike{" +
                 "uno='" + uno + '\'' +
                 ", lno='" + lno + '\'' +
                 ", number=" + number +

@@ -1,0 +1,25 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--不需要找到接口实现类只需要找到接口-->
+<mapper namespace="com.bamboo.dao.PLUDAO">
+    <!--一般定义为实体  此处id值是为下方查询或其余使用到的resultMap的值-->
+    <resultMap type="com.bamboo.entity.users.UserPersonalLike" id="personallike">
+        <!--对应表中主键-实体类属性-->
+        <result column="uno"  property="uno"/>
+        <result column="lno" property="lno"/>
+        <result column="number" property="number"/>
+    </resultMap>
+    <!--插入用户喜爱-->
+    <insert id="insertlike" parameterType="personallike">
+        INSERT INTO userlike (uno, lno,number) VALUES (#{uno}, #{lno},"0")
+
+    </insert>
+
+    <!--插入用户个人-->
+    <insert id="insertpersonal" parameterType="personallike">
+        INSERT INTO userpersonal (uno, lno,number) VALUES (#{uno}, #{lno},"0")
+
+    </insert>
+
+</mapper>

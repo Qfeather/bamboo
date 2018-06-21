@@ -1,5 +1,7 @@
 import com.bamboo.dao.ILeaveMessageDAO;
 import com.bamboo.entity.Photoes.Photo;
+import com.bamboo.entity.comments.Comment;
+import com.bamboo.entity.comments.Lmessage;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -44,4 +46,29 @@ public class IPLabelTest {
             System.out.println(p.toString());
         }
     }
+    @Test
+    public void inserrt(){
+        Lmessage lmessage=new Lmessage();
+        lmessage.setLmno();
+        lmessage.setPhno("1");
+        lmessage.setLmcontent("我觉得海星");
+        lmessage.setUuno("1");
+        lmessage.setLmdate();
+        int i=dao.leavemessage(lmessage);
+        System.out.println(i);
+    }
+
+    @Test
+    public void comm(){
+        Comment comment=new Comment();
+        comment.setScno();
+        comment.setFcno("5");
+        comment.setContent("Test");
+        comment.setUuno("1");
+        comment.setCdate();
+        comment.setLlmno("1");
+        int i=dao.newcontent(comment);
+        System.out.println(i);
+    }
+
 }

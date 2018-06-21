@@ -52,6 +52,26 @@
         where photo.pno=#{pno};
     </select>
 
+    <insert id="leavemessage" parameterType="com.bamboo.entity.comments.Lmessage">
+        INSERT INTO lmessage (lmno,pno,lmcontent,uno,lmdate)
+        VALUES
+        (#{lmno,jdbcType=VARCHAR},
+        #{phno,jdbcType=VARCHAR},
+        #{lmcontent,jdbcType=VARCHAR},
+        #{uuno,jdbcType=VARCHAR},
+        #{lmdate,jdbcType=DATE})
+    </insert>
+
+    <insert id="newcontent" parameterType="com.bamboo.entity.comments.Comment">
+        INSERT INTO comment (scno,fcno,content,uno,cdate,lmno)
+        VALUES
+        (#{scno,jdbcType=VARCHAR},
+        #{fcno,jdbcType=VARCHAR},
+        #{content,jdbcType=VARCHAR},
+        #{uuno,jdbcType=VARCHAR},
+        #{cdate,jdbcType=DATE},
+        #{llmno,jdbcType=VARCHAR})
+    </insert>
 
 
 </mapper>
