@@ -12,4 +12,6 @@ public interface PLUDAO {
 
     public List<String> selectlike(String user);//查询userlike表中用户喜爱的标签
     public List<String> selectpersonal(String user);//查询用户个人标签
+
+    public List<String> recommenduser(String label);//根据用户喜爱标签查询用户个人标签进行用户推荐
 }

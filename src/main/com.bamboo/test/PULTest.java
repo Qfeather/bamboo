@@ -50,4 +50,13 @@ public class PULTest {
         int i=dao.insertpersonal(like);
         System.out.println(i);
     }
+
+    @Test
+    public void recommend(){
+        List<String> list =dao.recommenduser("1");
+        for (String s: list
+             ) {
+            System.out.println(s);
+        }
+    }
 }
