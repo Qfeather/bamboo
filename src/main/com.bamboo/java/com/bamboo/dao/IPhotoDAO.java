@@ -12,4 +12,5 @@ public interface IPhotoDAO {
     public int delphoto(String pno);
     public int del(Map map);//删除个人发布的图片
     public List<Photo> searchphoto(String des);
+    public Photo findonephoto(String pno);
 }

@@ -77,4 +77,20 @@
        from user where name like "%"#{name}"%";
     </select>
 
+    <select id="findOne" resultMap="userMessage" parameterType="java.lang.String">
+      select
+       uno,
+       username,
+       name,
+       sex,
+       age,
+       homepages,
+       profile,
+       tel,
+       headimg,
+       regdate
+       from user where uno=#{uno};
+    </select>
+
+
 </mapper>

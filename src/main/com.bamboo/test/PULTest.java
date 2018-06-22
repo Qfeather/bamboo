@@ -52,6 +52,16 @@ public class PULTest {
     }
 
     @Test
+    public void searchonlylike(){
+        String s=dao.selectonlylike("1");
+        System.out.println(s);
+    }
+    @Test
+    public void searchon(){
+        String s=dao.selectonlypersonal("1");
+        System.out.println(s);
+    }
+    @Test
     public void recommend(){
         List<String> list =dao.recommenduser("1");
         for (String s: list

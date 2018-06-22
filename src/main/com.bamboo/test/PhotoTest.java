@@ -51,5 +51,10 @@ public class PhotoTest {
             System.out.println(p.toString());
         }
     }
+    @Test
+    public void findone(){
+        Photo photo=dao.findonephoto("1");
+        System.out.println(photo.toString());
+    }
 
 }

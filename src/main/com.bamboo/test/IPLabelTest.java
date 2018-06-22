@@ -1,4 +1,5 @@
 import com.bamboo.dao.ILeaveMessageDAO;
+import com.bamboo.dao.IPhotoLabelDAO;
 import com.bamboo.entity.Photoes.Photo;
 import com.bamboo.entity.comments.Comment;
 import com.bamboo.entity.comments.Lmessage;
@@ -8,14 +9,24 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:ApplicationContext.xml")
 public class IPLabelTest {
-//    @Resource(name = "IPLDao")
-//    private IPhotoLabelDAO dao;
-//
+    @Resource(name = "IPLDao")
+    private IPhotoLabelDAO pdao;
+    @Test
+    public void insert(){
+        Map<String,String> map=new HashMap<String,String>();
+        map.put("pno","2");
+        map.put("lno","b");
+        int i=pdao.insertpl(map);
+        System.out.println(i);
+    }
+
 //    @Test
 //    public void selectPL(){
 //        List<String> strings=dao.plabel("1");

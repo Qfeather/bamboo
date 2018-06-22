@@ -29,7 +29,11 @@ public class UserDAOTest {
         String uno=dao.getuno("root");
         System.out.println(uno);
     }
-
+    @Test
+    public  void findo(){
+        User uno=dao.findOne("1");
+        System.out.println(uno.toString());
+    }
     @Test
     public void newU(){
         User user=new User();

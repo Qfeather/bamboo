@@ -42,5 +42,9 @@
        from photo where pdes like "%"#{des}"%";
     </select>
 
+    <select id="findonephoto" resultType="com.bamboo.entity.Photoes.Photo" parameterType="java.lang.String">
+        select * from photo where pno=#{pno};
+    </select>
+
 
 </mapper>

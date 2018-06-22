@@ -11,13 +11,18 @@ public class Label {//标签类
         return lno;
     }
 
-    public void setLno(String lno) {
+    public void setLno() {
         Date day=new Date();
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String s=df.format(day).replaceAll("[[\\s-:punct:]]","");
         this.lno = "l"+s;
     }
-
+    public String setStringLno() {
+        Date day=new Date();
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String s=df.format(day).replaceAll("[[\\s-:punct:]]","");
+        return  "l"+s;
+    }
     public String getLname() {
         return lname;
     }

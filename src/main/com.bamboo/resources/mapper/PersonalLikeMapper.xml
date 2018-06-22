@@ -32,6 +32,19 @@
         Select lno from userpersonal where uno=#{user} order by number desc
     </select>
 
+
+
+    <!--查找用户最突出的个人标签-->
+    <select id="selectonlypersonal" resultType="java.lang.String" parameterType="java.lang.String">
+        Select lno from userpersonal where uno=#{user} order by number desc LIMIT 1
+    </select>
+
+
+    <!--查找用户喜爱标签-->
+    <select id="selectonlylike" resultType="java.lang.String" parameterType="java.lang.String">
+        Select lno from userlike where uno=#{user} order by number desc LIMIT 1
+    </select>
+
     <!--根据用户喜爱标签进行用户推荐-->
     <select id="recommenduser" resultType="java.lang.String" parameterType="java.lang.String">
         Select uno from userpersonal where lno=#{lno} order by number desc LIMIT 3
