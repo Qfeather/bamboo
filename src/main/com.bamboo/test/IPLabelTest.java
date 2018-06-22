@@ -82,4 +82,15 @@ public class IPLabelTest {
         System.out.println(i);
     }
 
+    @Test
+    public void findlmno(){
+        String s=dao.selectup("1");
+        System.out.println(s);
+    }
+    @Test
+    public void findlmnouser(){
+        String s=dao.selectupuser("1");
+        System.out.println(s);
+    }
+
 }

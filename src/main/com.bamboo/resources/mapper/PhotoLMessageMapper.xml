@@ -52,6 +52,7 @@
         where photo.pno=#{pno};
     </select>
 
+    <!--留言-->
     <insert id="leavemessage" parameterType="com.bamboo.entity.comments.Lmessage">
         INSERT INTO lmessage (lmno,pno,lmcontent,uno,lmdate)
         VALUES
@@ -61,7 +62,7 @@
         #{uuno,jdbcType=VARCHAR},
         #{lmdate,jdbcType=DATE})
     </insert>
-
+    <!--新评论-->
     <insert id="newcontent" parameterType="com.bamboo.entity.comments.Comment">
         INSERT INTO comment (scno,fcno,content,uno,cdate,lmno)
         VALUES
@@ -72,6 +73,13 @@
         #{cdate,jdbcType=DATE},
         #{llmno,jdbcType=VARCHAR})
     </insert>
-
+    <!--根据子评论的父评论找到该评论位于哪一个留言下-->
+    <select id="selectup" resultType="java.lang.String" parameterType="java.lang.String">
+        select DISTINCT c.lmno from comment left JOIN comment as c on comment.fcno=c.scno where comment.fcno=#{fcno};
+    </select>
+    <!--根据fcno找到该被评论人-->
+    <select id="selectupuser" resultType="java.lang.String" parameterType="java.lang.String">
+        select DISTINCT c.uno from comment left JOIN comment as c on comment.fcno=c.scno where comment.fcno=#{fcno};
+    </select>
 
 </mapper>

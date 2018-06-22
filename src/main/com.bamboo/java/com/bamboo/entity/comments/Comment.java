@@ -65,7 +65,7 @@ public class Comment {//评论类
     }
 
     public void setContent(String content) {
-        this.content = "回复@"+this.fcno+content;
+        this.content = content;
     }
 
     public User getUno() {

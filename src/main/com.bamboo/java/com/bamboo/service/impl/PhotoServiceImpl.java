@@ -1,14 +1,18 @@
 package com.bamboo.service.impl;
 
 import com.bamboo.dao.ICollectionDAO;
+import com.bamboo.dao.ILeaveMessageDAO;
 import com.bamboo.dao.IPhotoDAO;
 import com.bamboo.entity.Photoes.Photo;
 import com.bamboo.service.PhotoService;
+
+import java.util.List;
 
 public class PhotoServiceImpl implements PhotoService {
     //上传照片
     private IPhotoDAO pdao;
     private ICollectionDAO cdao;
+    private ILeaveMessageDAO lmdao;
     public boolean upload(Photo photo){
         int i=pdao.newPhoto(photo);
         if(i>0){
@@ -35,7 +39,10 @@ public class PhotoServiceImpl implements PhotoService {
             return false;
         }
     }
-
     //展示photo，留言，评论
+    public List<Photo> displayAll(String pno){
+        List<Photo> list=lmdao.findALL(pno);
+        return list;
+    }
 
 }
