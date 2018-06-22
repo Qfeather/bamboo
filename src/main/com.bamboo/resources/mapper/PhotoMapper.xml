@@ -26,6 +26,12 @@
         #{uno,jdbcType=VARCHAR})
     </insert>
 
+    <update id="updatephoto" parameterType="com.bamboo.entity.Photoes.Photo">
+    UPDATE photo SET
+    collnum = #{collnum,jdbcType=SMALLINT}
+    WHERE pno= #{pno,jdbcType=VARCHAR}
+    </update>
+
     <delete id="delphoto" parameterType="java.lang.String">
         DELETE FROM photo WHERE pno = #{pno}
     </delete>

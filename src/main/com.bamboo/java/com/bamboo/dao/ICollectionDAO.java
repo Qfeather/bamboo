@@ -1,5 +1,6 @@
 package com.bamboo.dao;
 
+import com.bamboo.entity.users.Collection;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -12,5 +13,7 @@ public interface ICollectionDAO {
     public List<String> findimg(Map map);
     //删除收藏夹下的对应图片
     public int del(Map map);
+    //收藏夹添加图片
+    public int insertnewphoto(Collection collection);
 
 }

@@ -22,6 +22,7 @@
     <select id="findckname" resultType="java.lang.String" parameterType="java.lang.String">
       select distinct ckname from collection where uno=#{username};
     </select>
+
     <select id="findimg" resultType="java.lang.String" parameterType="hashmap">
       select purl
       from collection
@@ -33,5 +34,14 @@
       DELETE from collection
       where uno=#{uno} and pno=#{pno} and ckname=#{ckname};
     </delete>
+    <!--收藏图片-->
+    <insert id="insertnewphoto" parameterType="com.bamboo.entity.users.Collection">
+      INSERT INTO collection (uno,pno,cdate,ckname)
+      VALUES
+      (#{uno,jdbcType=VARCHAR},
+      #{ppno,jdbcType=VARCHAR},
+      #{cdate,jdbcType=DATE},
+      #{ckname,jdbcType=VARCHAR})
+    </insert>
 
 </mapper>

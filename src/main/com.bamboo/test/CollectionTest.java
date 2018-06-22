@@ -38,6 +38,15 @@ public class CollectionTest {
         int i=dao.del(map);
         System.out.println(i);
     }
+    @Test
+    public void insert(){
+        com.bamboo.entity.users.Collection  collection=new com.bamboo.entity.users.Collection();
+        collection.setUno("2");
+        collection.setPpno("1");
+        collection.setCdate();
+        collection.setCkname("2");
+        int i=dao.insertnewphoto(collection);
+    }
 
 
 

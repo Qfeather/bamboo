@@ -7,6 +7,7 @@ import java.util.List;
 
 public class Collection {//收藏类
     private String uno;//用户编号
+    private String ppno;
     private List<Photo> pno;//照片编号
     private Date cdate;//收藏时间
     private String ckname;//收藏夹名字
@@ -26,13 +27,16 @@ public class Collection {//收藏类
     public void setPno(List<Photo> pno) {
         this.pno = pno;
     }
-
+    public void setPpno(String ppno) {
+        this.ppno = ppno;
+    }
     public Date getCdate() {
         return cdate;
     }
 
-    public void setCdate(Date cdate) {
-        this.cdate = cdate;
+    public void setCdate() {
+        Date day=new java.sql.Date(new Date().getTime());
+        this.cdate = day;
     }
 
 

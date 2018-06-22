@@ -56,5 +56,12 @@ public class PhotoTest {
         Photo photo=dao.findonephoto("1");
         System.out.println(photo.toString());
     }
+    @Test
+    public void upd(){
+        Photo photo=dao.findonephoto("1");
+        photo.addCollnum();//收藏数自加
+        int i=dao.updatephoto(photo);
+        System.out.println(i);
+    }
 
 }

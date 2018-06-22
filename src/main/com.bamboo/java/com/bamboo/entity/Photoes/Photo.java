@@ -76,6 +76,9 @@ public class Photo {//照片类
     public void setCollnum() {
         this.collnum = 0;
     }
+    public void addCollnum() {
+        this.collnum = this.collnum+1;
+    }
 
     public List<PhotoLabel> getLno() {
         return lno;
