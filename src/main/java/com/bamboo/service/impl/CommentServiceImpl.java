@@ -4,7 +4,9 @@ import com.bamboo.dao.ILeaveMessageDAO;
 import com.bamboo.entity.comments.Comment;
 import com.bamboo.entity.comments.Lmessage;
 import com.bamboo.service.CommentService;
+import org.springframework.stereotype.Service;
 
+@Service("commservice")
 public class CommentServiceImpl implements CommentService {
 
     //给图片留言

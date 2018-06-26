@@ -5,8 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository("UserDao")
-
+@Repository("userdao")
 public interface IUserDAO {
 
     public String findByusername(String username);

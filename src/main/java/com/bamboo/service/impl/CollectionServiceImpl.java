@@ -2,11 +2,13 @@ package com.bamboo.service.impl;
 
 import com.bamboo.dao.ICollectionDAO;
 import com.bamboo.service.CollectionService;
+import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Service("collectionservice")
 public class CollectionServiceImpl implements CollectionService {
 
     private ICollectionDAO dao;

@@ -1,8 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <!-- saved from url=(0039)https://v3.bootcss.com/examples/signin/ -->
-<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
@@ -40,14 +41,14 @@
     
     <div class="container">
     <div id="center">
-      <form class="form-signin">
+      <form class="form-signin" action="/hello/get">
         <h2 id="h2" class="form-signin-heading">Login</h2>
         <!-- 用户名 -->
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input id="username" type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus=""><br>
+        <label for="username" class="sr-only">Username</label>
+        <input id="username" type="text"class="form-control" placeholder="Username" required="" autofocus="" name="username"><br>
         <!-- 密码 -->
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input id="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+        <label for="password" class="sr-only">Password</label>
+        <input id="password" type="password"  class="form-control" placeholder="Password" required="" name="password">
         <br>
           <button id="login" class="btn btn-lg btn-info btn-block" type="submit">登录</button>
       </form>

@@ -4,10 +4,12 @@ import com.bamboo.dao.ILabelDAO;
 import com.bamboo.dao.IPhotoLabelDAO;
 import com.bamboo.entity.Label;
 import com.bamboo.service.LabelService;
+import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
 
+@Service("labelservice")
 public class LabelServiceImpl implements LabelService {
 
     private ILabelDAO labeldao;

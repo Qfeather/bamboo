@@ -1,5 +1,6 @@
 import com.bamboo.dao.IUserDAO;
 import com.bamboo.entity.users.User;
+import com.bamboo.service.impl.UserServicesImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -12,7 +13,7 @@ import java.util.List;
 @ContextConfiguration(locations = "classpath:ApplicationContext.xml")
 public class UserDAOTest {
 
-    @Resource(name = "UserDao")
+    @Resource(name = "userdao")
     private IUserDAO dao;
     @Test
     public void findp(){//根据用户名找密码
@@ -73,6 +74,18 @@ public class UserDAOTest {
         List<User> users=dao.searchuser("元");
         for (User u : users) {
             System.out.println(u.toString());
+        }
+    }
+
+    @Resource(name = "userservice")
+    private UserServicesImpl service;
+    @Test
+    public void login(){
+
+        if(service.login("admin","admin")){
+            System.out.println("true");
+        }else{
+            System.out.println("false");
         }
     }
 

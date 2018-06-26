@@ -3,11 +3,13 @@ package com.bamboo.service.impl;
 import com.bamboo.dao.IFansDAO;
 import com.bamboo.entity.users.Fans;
 import com.bamboo.service.FanService;
+import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Service("fanservice")
 public class FanServiceImpl implements FanService {
 
     private IFansDAO dao;

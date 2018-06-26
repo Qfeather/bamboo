@@ -7,10 +7,12 @@ import com.bamboo.dao.PLUDAO;
 import com.bamboo.entity.Photoes.Photo;
 import com.bamboo.entity.users.User;
 import com.bamboo.service.RecommendService;
+import org.springframework.stereotype.Service;
 
 import java.util.LinkedList;
 import java.util.List;
 
+@Service("recommservice")
 public class RecommendServiceImpl implements RecommendService {
 
     private PLUDAO pludao;

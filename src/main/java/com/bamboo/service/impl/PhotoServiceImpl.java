@@ -5,9 +5,11 @@ import com.bamboo.dao.ILeaveMessageDAO;
 import com.bamboo.dao.IPhotoDAO;
 import com.bamboo.entity.Photoes.Photo;
 import com.bamboo.service.PhotoService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service("phootservice")
 public class PhotoServiceImpl implements PhotoService {
     //上传照片
     private IPhotoDAO pdao;

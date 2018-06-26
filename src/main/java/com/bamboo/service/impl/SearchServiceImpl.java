@@ -5,9 +5,11 @@ import com.bamboo.dao.IUserDAO;
 import com.bamboo.entity.Photoes.Photo;
 import com.bamboo.entity.users.User;
 import com.bamboo.service.SearchService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service("searchservice")
 public class SearchServiceImpl implements SearchService {
 
     private IPhotoDAO pdao;
