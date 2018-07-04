@@ -10,7 +10,7 @@ public class Collection {//收藏类
     private String ppno;
     private List<Photo> pno;//照片编号
     private Date cdate;//收藏时间
-    private String ckname;//收藏夹名字
+
 
     public String getUno() {
         return uno;
@@ -40,21 +40,12 @@ public class Collection {//收藏类
     }
 
 
-    public String getCkname() {
-        return ckname;
-    }
-
-    public void setCkname(String ckname) {
-        this.ckname = ckname;
-    }
-
     @Override
     public String toString() {
         return "Collection{" +
                 "uno='" + uno + '\'' +
                 ", pno=" + pno +
                 ", cdate=" + cdate +
-                ", ckname='" + ckname + '\'' +
                 '}';
     }
 }

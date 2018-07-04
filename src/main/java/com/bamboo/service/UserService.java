@@ -9,5 +9,7 @@ public interface UserService {
     public boolean register(User user);
     //更改
     public boolean update(User user);
+    //得到信息
+    public User getUser(String user);
 
 }

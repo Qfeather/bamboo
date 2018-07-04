@@ -1,0 +1,98 @@
+body{
+	margin: 0;
+	background-color: #FAFAFA;
+	color:#262626;
+}
+.tocenter{
+	margin: 0 auto;
+}
+div{
+	/*	border: 1px solid #000;*/
+}
+
+div a{
+	color: #fff;
+}
+div a:visited {color:#fff;}
+div a:hover{color: #ccc;}
+
+
+
+ul li{
+	display: inline;
+	list-style-type:none;
+}
+
+#cen div{
+	/*	border: 1px solid #E6E6E6;*/
+}
+#cen{
+	margin: 0 auto;
+	padding-top: 50px;
+	background-color: #fafafa;
+
+
+}
+#centop{
+
+}
+.cbutton{
+	margin-top: 13px;
+}
+.collphoto{
+	height: 250px;
+	width: 250px;
+	margin-top: 30px;
+	margin-bottom: 14px;
+	margin-right: 70px;
+	display: inline-block;
+	border: 1px solid #e6e6e6;
+}
+.collfont{
+	height: 50px;
+	width: 100%;
+}
+.collfont p{
+	margin-left: 45%;
+}
+#collection{
+
+}
+#menu{
+	background-color: #222;
+	border-color: #080808;
+}
+#pcoll{
+
+}
+#pcoll p{
+	color: #333;
+	font-size: 20px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-left: 40px;
+}
+th div{
+	border: 1px solid #E6E6E6;
+}
+#headimg{
+	margin-top: 50px;
+	margin-left: 140px;
+	float: left;
+
+	border: 1px solid #E6E6E6;
+}
+#messgae{
+	float: left;
+	margin: 50px 50px 50px 50px;
+}
+#config{
+
+}
+#personaltext{
+
+}
+.tablephoto{
+	width: 100%;
+	height: 100%;
+}

@@ -33,7 +33,6 @@ public class PhotoServiceImpl implements PhotoService {
         collection.setUno(uno);
         collection.setPpno(pno);
         collection.setCdate();
-        collection.setCkname(ckname);
         int j=cdao.insertnewphoto(collection);
         if(i>0&&j>0){
             return true;

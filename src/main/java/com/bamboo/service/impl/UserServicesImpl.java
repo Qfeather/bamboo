@@ -16,7 +16,6 @@ public class UserServicesImpl implements UserService {
     @Override
     public boolean login(String username, String password) {
         String truepass = userDAO.findByusername(username);
-        System.out.println(truepass);
         if(password.equals(truepass)){
             return true;
         }else {
@@ -42,6 +41,12 @@ public class UserServicesImpl implements UserService {
         }else {
             return false;
         }
+    }
+
+    @Override
+    public User getUser(String username) {
+        User user=userDAO.findoneuser(username);
+        return user;
     }
 
 }

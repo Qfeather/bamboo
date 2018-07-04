@@ -9,7 +9,6 @@
         <id column="uno"  property="uno"/>
         <!--column 表字段，property 实体类属性-->
         <result column="cdate" property="cdate"/>
-        <result column="ckname" property="ckname"/>
         <collection property="pno" ofType="com.bamboo.entity.Photoes.Photo">
             <id column="pno" property="pno"/>
             <result column="purl" property="purl"/>
@@ -18,30 +17,25 @@
             <result column="collnum" property="collnum"/>
         </collection>
     </resultMap>
-
-    <select id="findckname" resultType="java.lang.String" parameterType="java.lang.String">
-      select distinct ckname from collection where uno=#{username};
-    </select>
-
-    <select id="findimg" resultType="java.lang.String" parameterType="hashmap">
+    <!--查找收藏夹内图片-->
+    <select id="findimg" resultType="java.lang.String" parameterType="java.lang.String">
       select purl
       from collection
       left join photo on collection.pno=photo.pno
-      where collection.uno=#{uno} and ckname=#{ckname};
+      where collection.uno=#{uno};
     </select>
-
+    <!--删除收藏夹内指定图片-->
     <delete id="del" parameterType="hashmap">
       DELETE from collection
-      where uno=#{uno} and pno=#{pno} and ckname=#{ckname};
+      where uno=#{uno} and pno=#{pno};
     </delete>
     <!--收藏图片-->
     <insert id="insertnewphoto" parameterType="com.bamboo.entity.users.Collection">
-      INSERT INTO collection (uno,pno,cdate,ckname)
+      INSERT INTO collection (uno,pno,cdate)
       VALUES
       (#{uno,jdbcType=VARCHAR},
       #{ppno,jdbcType=VARCHAR},
-      #{cdate,jdbcType=DATE},
-      #{ckname,jdbcType=VARCHAR})
+      #{cdate,jdbcType=DATE})
     </insert>
 
 </mapper>

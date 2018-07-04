@@ -1,4 +1,5 @@
 import com.bamboo.dao.ICollectionDAO;
+import com.bamboo.service.impl.CollectionServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -10,31 +11,22 @@ import java.util.List;
 import java.util.Map;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:ApplicationContext.xml")
+@ContextConfiguration(locations = {"classpath:ApplicationContext.xml","classpath:ApplicationContext-dataSource.xml"})
 public class CollectionTest {
 
     @Resource(name="CollectDao")
     private ICollectionDAO dao;
 
     @Test
-    public void findckname(){//查询哪些收藏夹属于那些用户
-        List<String> strings=dao.findckname("1");
-        System.out.println(strings);
-    }
-    @Test
     public void findimg(){//查询对应收藏夹下图片
-        Map<String,String> map=new HashMap<String,String>();
-        map.put("uno","1");
-        map.put("ckname","1");
-        List<String> strings=dao.findimg(map);
+        List<String> strings=dao.findimg("2");
         System.out.println(strings);
-    }
+}
     @Test
     public void del(){
         Map<String,String> map=new HashMap<String,String>();
         map.put("uno","1");
         map.put("pno","1");
-        map.put("ckname","1");
         int i=dao.del(map);
         System.out.println(i);
     }
@@ -44,9 +36,17 @@ public class CollectionTest {
         collection.setUno("2");
         collection.setPpno("1");
         collection.setCdate();
-        collection.setCkname("2");
         int i=dao.insertnewphoto(collection);
     }
+
+    @Resource(name="collectionservice")
+    private CollectionServiceImpl service;
+    @Test
+    public void findall(){
+        List<String> list=service.allphoto("2");
+        System.out.println(list);
+}
+
 
 
 

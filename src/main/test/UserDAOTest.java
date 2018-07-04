@@ -10,11 +10,16 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:ApplicationContext.xml")
+@ContextConfiguration(locations = {"classpath:ApplicationContext.xml","classpath:ApplicationContext-dataSource.xml"})
 public class UserDAOTest {
 
     @Resource(name = "userdao")
     private IUserDAO dao;
+    @Test
+    public void finddddd(){
+        User user=dao.findoneuser("admin");
+        System.out.println(user.toString());
+    }
     @Test
     public void findp(){//根据用户名找密码
        String user= dao.findByusername("root");
@@ -87,6 +92,11 @@ public class UserDAOTest {
         }else{
             System.out.println("false");
         }
+    }
+    @Test
+    public void test1(){
+        User user=service.getUser("admin");
+        System.out.println(user.toString());
     }
 
 }

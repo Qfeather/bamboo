@@ -12,6 +12,8 @@ public interface IUserDAO {
     //根据用户名查询密码做登录使用，查不到密码则用户不存在
     public User findAll(String username);
     public User findOne(String username);
+
+    public User findoneuser(String username);
     public String getuno(String username);
 
     public int newUser(User user);
